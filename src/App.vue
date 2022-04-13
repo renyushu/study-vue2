@@ -3,7 +3,7 @@
         <div class="todo-container">
             <div class="todo-wrap">
                 <MyHeader :addTodo="addTodo"/>
-                <MyList :todos="todos"/>
+                <MyList :todos="todos" :checkTodo="checkTodo"/>
                 <MyFooter/>
             </div>
         </div>
@@ -34,6 +34,12 @@ import MyList from './components/MyList'
         methods: {
             addTodo(todoObj){
                 this.todos.unshift(todoObj)
+            },
+            //勾选或者取消勾选一个todo
+            checkTodo(id) {
+                this.todos.forEach((todo) => {
+                    if (todo.id === id) todo.done = !todo.done
+                })
             }
         }
     }

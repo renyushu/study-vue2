@@ -1,7 +1,8 @@
 <template>
     <li>
         <label>
-            <input type="checkbox" :checked="todo.done"/>
+            <!-- <input type="checkbox" :checked="todo.done" @click="handleCheck(todo.id)"/> -->
+            <input type="checkbox" :checked="todo.done" @change="handleCheck(todo.id)"/>
             <span>{{todo.title}}</span>
         </label>
         <button class="btn btn-danger" style="dispaly:none">删除</button>
@@ -12,7 +13,14 @@
 export default {
     name: 'MyItem',
     //声明接受todo对象
-    props: ['todo']
+    props: ['todo', 'checkTodo'],
+    methods: {
+      handleCheck(id) {
+        // console.log(id)
+        //通知App组件将对应的todo对象的done取反
+        this.checkTodo(id)
+      }
+    }
 }
 </script>
 
