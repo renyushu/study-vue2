@@ -1,8 +1,8 @@
 <template>
     <li>
         <label>
-            <input type="checkbox"/>
-            <span>yyyyy</span>
+            <input type="checkbox" :checked="todo.done"/>
+            <span>{{todo.title}}</span>
         </label>
         <button class="btn btn-danger" style="dispaly:none">删除</button>
     </li>
@@ -10,7 +10,9 @@
 
 <script>
 export default {
-    name: 'MyItem'
+    name: 'MyItem',
+    //声明接受todo对象
+    props: ['todo']
 }
 </script>
 
