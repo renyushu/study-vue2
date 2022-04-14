@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>localStorage</title>
+    </head>
+    <boyd>
+        <h2>localStorage</h2>
+        <button onclick="saveData()">saveData</button>
+        <button onclick="readeData()">readeData</button>
+        <button onclick="removeData()">removeData</button>
+        <button onclick="clearData()">clearData</button>
+
+        <script type="text/javascript">
+            let p = {name: 'rick', age: 90}
+            let p2 = {name: 'rick', age: 930}
+
+            function saveData(){
+                window.localStorage.setItem('msg', 'hello')
+                window.localStorage.setItem('msg', 'hellod')
+                window.localStorage.setItem('msg2', 'world')
+                window.localStorage.setItem('msg3', 'js')
+                window.localStorage.setItem('person', JSON.stringify(p2))
+            }
+            function readeData(){
+                console.log(localStorage.getItem('msg2'))
+                const result = localStorage.getItem('person')
+                console.log(JSON.parse(result))
+            }
+
+            function removeData(){
+                localStorage.removeItem('msg3')
+                localStorage.removeItem('person')
+            }
+
+            function clearData(){
+                localStorage.clear()
+            }
+        </script>
+    </boyd>
+</html>
