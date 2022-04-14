@@ -3,8 +3,8 @@
         <div class="todo-container">
             <div class="todo-wrap">
                 <MyHeader :addTodo="addTodo"/>
-                <MyList :todos="todos" :checkTodo="checkTodo"/>
-                <MyFooter/>
+                <MyList :todos="todos" :checkTodo="checkTodo" :deleteTodo="deleteTodo"/>
+                <MyFooter :todos="todos"/>
             </div>
         </div>
     </div>
@@ -32,6 +32,7 @@ import MyList from './components/MyList'
             }
         },
         methods: {
+            //添加todo
             addTodo(todoObj){
                 this.todos.unshift(todoObj)
             },
@@ -39,6 +40,12 @@ import MyList from './components/MyList'
             checkTodo(id) {
                 this.todos.forEach((todo) => {
                     if (todo.id === id) todo.done = !todo.done
+                })
+            },
+            //删除todo
+            deleteTodo(id) {
+                this.todos = this.todos.filter(todo => {
+                    return todo.id !== id
                 })
             }
         }

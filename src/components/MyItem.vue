@@ -5,7 +5,7 @@
             <input type="checkbox" :checked="todo.done" @change="handleCheck(todo.id)"/>
             <span>{{todo.title}}</span>
         </label>
-        <button class="btn btn-danger" style="dispaly:none">删除</button>
+        <button class="btn btn-danger" style="dispaly:none" @click="deleteItem(todo.id)">删除</button>
     </li>
 </template>
 
@@ -13,12 +13,20 @@
 export default {
     name: 'MyItem',
     //声明接受todo对象
-    props: ['todo', 'checkTodo'],
+    props: ['todo', 'checkTodo', 'deleteTodo'],
     methods: {
+      //勾选
       handleCheck(id) {
         // console.log(id)
         //通知App组件将对应的todo对象的done取反
         this.checkTodo(id)
+      },
+      //删除
+      deleteItem(id) {
+        if (confirm('确定删除吗?')) {
+          // console.log(id)
+          this.deleteTodo(id)
+        }
       }
     }
 }

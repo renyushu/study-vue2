@@ -5,6 +5,7 @@
             :key="todoObj.jd" 
             :todo="todoObj" 
             :checkTodo="checkTodo"
+            :deleteTodo="deleteTodo"
         />
     </ul>
 </template>
@@ -20,7 +21,7 @@ export default {
 
         }
     },
-    props: ['todos', 'checkTodo']
+    props: ['todos', 'checkTodo', "deleteTodo"]
 }
 </script>
 
